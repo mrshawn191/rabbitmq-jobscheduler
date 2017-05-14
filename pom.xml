@@ -48,6 +48,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>7.9.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>4.1.0</version>

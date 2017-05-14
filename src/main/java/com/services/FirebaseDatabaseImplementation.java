@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * FirebaseDatabaseImplementation handles all the persistance logic
+ */
 public class FirebaseDatabaseImplementation
 {
 
@@ -17,7 +20,8 @@ public class FirebaseDatabaseImplementation
     {
         final List<SmsMessage> scheduledSmsMessagesForToday = new ArrayList<>();
 
-        final Query query = com.google.firebase.database.FirebaseDatabase.getInstance()
+        final Query query = com.google.firebase.database.FirebaseDatabase
+                .getInstance()
                 .getReference()
                 .child("scheduledSmsMessage");
 
@@ -35,10 +39,12 @@ public class FirebaseDatabaseImplementation
                 {
                     scheduledSmsMessagesForToday.add(smsMessage);
                     // Delete from scheduledat
-                    Query todayMeetingQuery = FirebaseDatabase.getInstance()
+                    Query todayMeetingQuery = FirebaseDatabase
+                            .getInstance()
                             .getReference()
                             .child("scheduledSmsMessage")
-                            .child(smsMessage.getId()
+                            .child(smsMessage
+                                    .getId()
                                     .toString());
                     todayMeetingQuery.addListenerForSingleValueEvent(new ValueEventListener()
                     {
@@ -46,7 +52,8 @@ public class FirebaseDatabaseImplementation
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot)
                         {
-                            dataSnapshot.getRef()
+                            dataSnapshot
+                                    .getRef()
                                     .removeValue();
 
                             logger.info("Removed meeting " + smsMessage.toString());
@@ -84,5 +91,10 @@ public class FirebaseDatabaseImplementation
         });
 
         return scheduledSmsMessagesForToday;
+    }
+
+    public void saveSentSmsMessages()
+    {
+
     }
 }
