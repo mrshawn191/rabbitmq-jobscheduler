@@ -14,7 +14,7 @@ This project is a part of our Homeruns project that can be found here [Homeruns]
 
 ## Project Design
 
-![alt text](https://github.com/mrshawn191/rabbitmq-jobscheduler/blob/master/jobscheduler-rabbitmq.png "Logo Title Text 1")
+![alt text](https://github.com/mrshawn191/rabbitmq-jobscheduler/blob/master/jobscheduler-rabbitmq2.png "Logo Title Text 1")
 
 ## Dependencies used
 
