@@ -1,13 +1,18 @@
 package com.services.consumers;
 
+import com.google.firebase.database.*;
+import com.model.SmsMessage;
 import com.rabbitmq.client.*;
 import com.services.queues.QueueNameConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.text.DateFormatSymbols;
 import java.util.HashMap;
 import java.util.Map;
+
+import java.util.Date;
 
 public class SmsMessageConsumer
 {
@@ -37,4 +42,5 @@ public class SmsMessageConsumer
 
         channel.basicConsume(QueueNameConstants.SMSMESSAGE_QUEUE_NAME, true, consumer);
     }
+
 }
