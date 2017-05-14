@@ -1,1 +1,5 @@
 *.rb linguist-language=Java
+
+.mvn/* linguist-vendored
+
+.idea/* linguist-vendored
