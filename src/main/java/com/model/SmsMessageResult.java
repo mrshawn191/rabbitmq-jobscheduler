@@ -5,6 +5,14 @@ import org.joda.time.DateTime;
 public class SmsMessageResult
 {
 
+    private int id;
+
+    private String message;
+
+    private String from;
+
+    private String to;
+
     private String status;
 
     private DateTime dateSent;
@@ -13,12 +21,49 @@ public class SmsMessageResult
 
     private Integer errorCode;
 
-    public SmsMessageResult(String status, DateTime dateSent, String errorMessage, Integer errorCode)
+    public SmsMessageResult(int id, String message, String from, String to, String status, DateTime dateSent, String errorMessage, Integer errorCode)
     {
+        this.id = id;
+        this.message = message;
+        this.from = from;
+        this.to = to;
         this.status = status;
         this.dateSent = dateSent;
         this.errorMessage = errorMessage;
         this.errorCode = errorCode;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    public String getMessage()
+    {
+        return message;
+    }
+    public void setMessage(String message)
+    {
+        this.message = message;
+    }
+    public String getFrom()
+    {
+        return from;
+    }
+    public void setFrom(String from)
+    {
+        this.from = from;
+    }
+    public String getTo()
+    {
+        return to;
+    }
+    public void setTo(String to)
+    {
+        this.to = to;
     }
     public String getStatus()
     {
@@ -56,6 +101,6 @@ public class SmsMessageResult
     @Override
     public String toString()
     {
-        return "SmsMessageResult{" + "status='" + status + '\'' + ", dateSent=" + dateSent + ", errorMessage='" + errorMessage + '\'' + ", errorCode=" + errorCode + '}';
+        return "SmsMessageResult{" + "id=" + id + ", message='" + message + '\'' + ", from='" + from + '\'' + ", to='" + to + '\'' + ", status='" + status + '\'' + ", dateSent=" + dateSent + ", errorMessage='" + errorMessage + '\'' + ", errorCode=" + errorCode + '}';
     }
 }

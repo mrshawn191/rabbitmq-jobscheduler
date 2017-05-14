@@ -17,7 +17,7 @@ import java.io.ObjectOutputStream;
 import java.util.*;
 
 /**
- * SmsMessagePublisher sends serialized scheduled smsMessages for today to the queue
+ * SmsMessagePublisher sends scheduled smsMessages to be sent today to the queue
  */
 public class SmsMessagePublisher
 {
@@ -26,7 +26,7 @@ public class SmsMessagePublisher
 
     final static ConnectionFactory factory = new ConnectionFactory();
 
-    final private FirebaseDatabaseImplementation firebaseDatabaseImplementation = new FirebaseDatabaseImplementation();
+    private FirebaseDatabaseImplementation firebaseDatabaseImplementation = new FirebaseDatabaseImplementation();
 
     public void publish()
     {
@@ -67,17 +67,12 @@ public class SmsMessagePublisher
 
     private byte[] serialize(SmsMessage smsMessage)
     {
-        ObjectOutput out;
-
         byte[] serializedSmsMessage = new byte[0];
 
-        try (ByteArrayOutputStream bos = new ByteArrayOutputStream())
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream(); ObjectOutput out = new ObjectOutputStream(bos))
         {
-            out = new ObjectOutputStream(bos);
             out.writeObject(smsMessage);
-            out.flush();
             serializedSmsMessage = bos.toByteArray();
-
         }
         catch (IOException e)
         {
