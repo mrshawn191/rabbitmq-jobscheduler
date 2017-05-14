@@ -39,13 +39,7 @@ public class SmsMessagePublisher
             channel.queueDeclare(QueueNameConstants.SMSMESSAGE_QUEUE_NAME, true, false, false, params);
 
             List<SmsMessage> scheduledSmsMessagesForToday = firebaseDatabaseImplementation.getScheduledSmsMessagesForToday();
-
-            for (SmsMessage smsMessage : scheduledSmsMessagesForToday)
-            {
-                byte[] payload = serialize(smsMessage);
-                channel.basicPublish("", QueueNameConstants.SMSMESSAGE_QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, payload);
-            }
-
+            scheduledSmsMessagesForToday.forEach(x -> sendPayload(channel, x));
             logger.info("Sent total " + scheduledSmsMessagesForToday.size() + " to queue");
 
             // close everything
@@ -53,6 +47,19 @@ public class SmsMessagePublisher
             connection.close();
         }
         catch (Exception e)
+        {
+            logger.error(e.getMessage(), e);
+        }
+    }
+
+    private void sendPayload(Channel channel, SmsMessage smsMessage)
+    {
+        byte[] payload = serialize(smsMessage);
+        try
+        {
+            channel.basicPublish("", QueueNameConstants.SMSMESSAGE_QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, payload);
+        }
+        catch (IOException e)
         {
             logger.error(e.getMessage(), e);
         }
