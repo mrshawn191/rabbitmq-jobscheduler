@@ -10,11 +10,11 @@ Our consumer will receive the payload and send the sms through an external reque
 
 It will then save all successfully sent sms to firebase as a separate json child key, so that we can display these in a dashboard.
 
-This project is a part of our Homeruns project that can be found here - [Homeruns](http://homeruns.io)
+This project is a part of our Homeruns project that can be found here [Homeruns](http://homeruns.io)
 
 ## Project Design
 
-![alt text](https://github.com/mrshawn191/aws-lambda-twilio/blob/master/aws%20serverless%20design.png "Logo Title Text 1")
+![alt text](https://github.com/mrshawn191/rabbitmq-jobscheduler/blob/master/jobscheduler-rabbitmq.png "Logo Title Text 1")
 
 ## Dependencies used
 
