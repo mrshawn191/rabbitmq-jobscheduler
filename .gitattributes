@@ -2,4 +2,8 @@
 
 .mvn/* linguist-vendored
 
+mvnw linguist-vendored
+
+mvnw.cmd linguist-vendored
+
 .idea/* linguist-vendored
