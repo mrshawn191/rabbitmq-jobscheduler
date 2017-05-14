@@ -1,6 +1,6 @@
 ## rabbitmq-jobscheduler
 
-This is a jobscheduler that sends jobs with RabbitMQ producer/consumer model. 
+This is a jobscheduler that sends jobs with RabbitMQ producer/consumer messaging. 
 
 The jobscheduler fires a job each day to the producer which will query the firebase NoSQL cloud database and get all smsMessages that are needed to be sent today.  
 
