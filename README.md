@@ -2,9 +2,9 @@
 
 This is a jobscheduler that sends jobs with RabbitMQ producer/consumer model. 
 
-The jobscheduler queries the firebase NoSQL cloud database and gets all smsMessages that are needed to be sent today.  
+The jobscheduler fires a job each day to the producer which will query the firebase NoSQL cloud database and get all smsMessages that are needed to be sent today.  
 
-For all valid smsMessages we send them as payload through our rabbitmq producer to the queue.
+For all valid smsMessages we send them as payload to our rabbitmq queue.
 
 Our consumer will receive the payload and send the sms through an external request via twilio api. 
 
