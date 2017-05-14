@@ -10,7 +10,7 @@ Our consumer will receive the payload and send the sms through an external reque
 
 It will then save all successfully sent sms to firebase as a separate json child key, so that we can display these in a dashboard.
 
-This project is a part of our Homeruns project that can be found here [Homeruns](http://homeruns.io)
+The project is hosted on Heroku and is a part of our Homeruns project that can be found here [Homeruns](http://homeruns.io)
 
 ## Project Design
 
