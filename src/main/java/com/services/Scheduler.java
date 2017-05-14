@@ -29,7 +29,7 @@ public class Scheduler
 
         Trigger trigger = newTrigger()
                 //                .startNow()
-                .startAt(DateBuilder.tomorrowAt(15, 0, 0)) // first fire time 15:00:00 tomorrow
+                .startAt(DateBuilder.tomorrowAt(9, 0, 0)) // first fire time 09:00:00 tomorrow
                 .withSchedule(simpleSchedule()
                         .withIntervalInHours(24)
                         .repeatForever())
